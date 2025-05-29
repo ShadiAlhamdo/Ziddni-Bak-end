@@ -35,19 +35,9 @@ app.use(rateLimiting({
 
 // Cors Policy
 app.use(cors({
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      'http://localhost:3000',
-      'https://ziddni-front-end.vercel.app/'
-    ];
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('CORS Not Allowed'));
-    }
-  },
-  credentials: true
+    origin:process.env.CLIENT_DOMAIN
 }));
+
 
 // Routes
 // مسار للاختبار
