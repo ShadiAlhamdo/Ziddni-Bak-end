@@ -1,0 +1,27 @@
+# راجع: https://help.github.com/articles/ignoring-files/ لمزيد من المعلومات حول تجاهل الملفات
+
+# مجلدات الاعتمادات (Dependencies)
+node_modules/
+.pnp/
+.pnp.js
+
+# ملفات البيئة (Environment variables)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات التغطية أثناء الاختبار (Testing coverage reports)
+coverage/
+
+# مجلد البناء النهائي (عادةً يتم إنشاؤه بعد build)
+build/
+
+# ملفات غير مهمة في النظام (ملفات النظام المؤقتة مثل macOS)
+.DS_Store
+
+# سجلات الأخطاء أثناء تثبيت الحزم
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
