@@ -27,11 +27,7 @@ app.use(hpp());
 // Prevent Xss (Cross Site Scripting) Attacks
 app.use(xss());
 
-// Rate Limiting
-app.use(rateLimiting({
-    windowMs: 10 * 60 * 1000 ,//10 Minutes
-    max:500
-}))
+
 
 // Cors Policy
 app.use(cors({
