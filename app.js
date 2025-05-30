@@ -35,9 +35,12 @@ app.use(rateLimiting({
 
 // Cors Policy
 app.use(cors({
-  origin: "https://ziddni-front-end.vercel.app", // رابط الواجهة الأمامية بدون slash
-  credentials: true, // إذا كنت تستخدم الكوكيز أو التوكن
+  origin: "https://ziddni-front-end.vercel.app", // رابط الفرونت من Vercel
+  credentials: true
 }));
+
+// Enable preflight (OPTIONS) requests
+app.options('*', cors());
 
 // Routes
 // مسار للاختبار
