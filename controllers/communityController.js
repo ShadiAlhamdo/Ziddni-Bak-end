@@ -68,9 +68,7 @@ exports.editQuestionCtrl = asyncHandler(async (req, res) => {
 exports.deleteQuestionCtrl = asyncHandler(async (req, res) => {
   const questionId = req.params.id;
   const question = await Question.findById(questionId);
-  if(!req.user.isAdmin){
-     return res.status(404).json({message:"No User Is Admin"})
-  }
+  
   if (!question) {
     return res.status(404).json({ message: "Question not found" });
   }
