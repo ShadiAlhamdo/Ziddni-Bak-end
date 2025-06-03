@@ -73,13 +73,17 @@ exports.deleteQuestionCtrl = asyncHandler(async (req, res) => {
     return res.status(404).json({ message: "Question not found" });
   }
   
-  if (question.user.toString() !== req.user.id.toString() || req.user.isAdmin) {
-    return res.status(403).json({ message: "Not allowed to delete this question" });
-  }
-  // حذف جميع الإجابات المتعلقة بالسؤال
+  if (question.user.toString() == req.user.id.toString() || req.user.isAdmin) {
   await Answer.deleteMany({ question: questionId });
   await question.deleteOne();
   res.status(200).json({ message: "Question and its answers deleted successfully" });
+  
+  }
+  else{
+    return res.status(403).json({ message: "Not allowed to delete this question" });
+  }
+  // حذف جميع الإجابات المتعلقة بالسؤال
+  
 });
 
 /**
