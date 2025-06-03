@@ -71,8 +71,9 @@ exports.deleteQuestionCtrl = asyncHandler(async (req, res) => {
   if (!question) {
     return res.status(404).json({ message: "Question not found" });
   }
+  
   if (question.user.toString() !== req.user.id.toString() || req.user.isAdmin) {
-    return res.status(403).json({ message: "Not allowed to delete this question" });
+    return res.status(403).json({ message:req.user.isAdmin });
   }
   // حذف جميع الإجابات المتعلقة بالسؤال
   await Answer.deleteMany({ question: questionId });
